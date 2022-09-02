@@ -42,7 +42,7 @@ spec:
         depends: "build"
   - name: test-image-snyk
     container:
-      image: snyk/snyk:java
+      image: snyk/snyk:maven-3-jdk-11
       command: [snyk]
       args:
       - container
