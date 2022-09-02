@@ -1,0 +1,12 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: java-hello-world-external-rollouts
+spec:
+  type: NodePort
+  selector:
+    app: java-hello-world-rollouts
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
