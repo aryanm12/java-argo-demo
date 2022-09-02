@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: build-container-image-
+  generateName: build-java-image-
   labels:
     workflows.argoproj.io/archive-strategy: "false"
   namespace: argo
@@ -36,7 +36,7 @@ spec:
           - name: container_image
             value: aryanmohan/java-argo-demo
           - name: container_tag
-            value: "1.0.0"
+            value: "2.0.0"
       - name: scan
         template: test-image-snyk
         depends: "build"
@@ -47,7 +47,7 @@ spec:
       args:
       - container
       - test
-      - aryanmohan/java-argo-demo:1.0.0
+      - aryanmohan/java-argo-demo:2.0.0
       env:
       - name: SNYK_TOKEN
         valueFrom:
